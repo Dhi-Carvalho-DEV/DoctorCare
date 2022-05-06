@@ -2,6 +2,7 @@
 
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -15,6 +16,14 @@
   --gray-headline: #212529;
   --gray-paragraph: #495057;
   --white: #ffffff;
+
+  --nav-height: 7.2rem;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -22,16 +31,162 @@ body {
   font-size: 1.6rem;
 
   text-align: center;
+  overflow: overlay;
 }
 
-header {
+.wrapper {
   width: 37.5rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 4.1rem;
+  padding-inline: 2.4rem;
 }
 
-h4 {
+ul {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  height: var(--nav-height);
+
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav.scroll {
+  background-color: var(--brand-green);
+  width: 100vw;
+}
+
+nav.scroll svg:nth-child(1) path {
+  fill: var(--white);
+}
+
+nav.scroll button path {
+  stroke: white;
+}
+
+nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+body.menu-expanded {
+  overflow: hidden;
+}
+
+body.menu-expanded > :not(nav) {
+  display: none;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.menu-expanded nav {
+  position: relative;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--brand-green);
+  width: 100vw;
+  height: 100vh;
+  padding-top: var(--nav-height);
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  margin-top: 6rem;
+}
+
+.menu a {
+  color: var(--white);
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
+
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu .button {
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  background-color: var(--white);
+  border-radius: 4rem;
+
+  color: var(--brand-green);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: var(--white);
+}
+
+body.menu-expanded button path {
+  stroke: var(--white);
+}
+
+header {
+  margin-top: calc(4.1rem + var(--nav-height));
+}
+
+header::before {
+  content: '';
+  background-color: var(--brand-green-light);
+  width: 100%;
+  height: calc(108rem + var(--nav-height));
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+header h4 {
   font-size: 1.4rem;
   line-height: 2.1rem;
   color: var(--brand-green);
@@ -39,7 +194,7 @@ h4 {
   margin-bottom: 1.6rem;
 }
 
-h1 {
+header h1 {
   font-size: 3.4rem;
   line-height: 4.4rem;
   text-align: center;
@@ -47,7 +202,7 @@ h1 {
   margin-bottom: 2.4rem;
 }
 
-p {
+header p {
   font-size: 1.8rem;
   line-height: 2.7rem;
   font-weight: 400;
@@ -56,7 +211,7 @@ p {
   margin-bottom: 3.3rem;
 }
 
-button {
+header button {
   background-color: var(--brand-green);
   color: var(--white);
   border-radius: 4rem;
@@ -76,24 +231,35 @@ button {
   margin-right: auto;
 }
 
-.numbers {
-  width: 32.7rem;
-  height: 47rem;
-  background-color: var(--brand-beige);
-  box-sizing: border-box;
-  border: 0.1rem solid var(--brand-green-light);
-  border-radius: 0.6rem;
+header img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
 }
 
-.numbers h3 {
+.stats {
+  width: 32.7rem;
+  background-color: var(--brand-beige);
+  border: 1px solid var(--brand-green-light);
+  border-radius: 0.6rem;
+  padding-block: 4rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.stat h3 {
   font-size: 4.8rem;
   line-height: 6.2rem;
   color: var(--gray-headline);
-  text-align: center;
-  margin-top: 3.8rem;
+  margin-bottom: 0.4rem;
 }
 
-.numbers p {
+.stat p {
+  margin: 0;
   font-size: 1.6rem;
   line-height: 2.4rem;
   color: var(--brand-green);
