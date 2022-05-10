@@ -20,6 +20,10 @@
   --nav-height: 7.2rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   width: 100%;
@@ -29,7 +33,7 @@ body {
 body {
   font-family: 'DM Sans', sans-serif;
   font-size: 1.6rem;
-
+  background-color: var(--brand-green-light-02);
   text-align: center;
   overflow: overlay;
 }
@@ -45,6 +49,45 @@ ul {
   list-style: none;
 }
 
+img {
+  max-width: 100%;
+}
+
+section {
+  padding-block: 10rem;
+}
+
+section header h1 {
+  font-size: 3.4rem;
+  color: var(--gray-headline);
+  line-height: 130%;
+  margin-bottom: 2.4rem;
+}
+
+section header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 3.9rem;
+  color: var(--gray-headline);
+}
+
+section header h4 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 2.1rem;
+  letter-spacing: 0.08rem;
+  color: var(--brand-green);
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+}
+
+section .content p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: var(--gray-paragraph);
+}
+
 nav {
   display: flex;
   height: var(--nav-height);
@@ -53,6 +96,7 @@ nav {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 100;
 }
 
 nav .wrapper {
@@ -66,7 +110,7 @@ nav.scroll {
   width: 100vw;
 }
 
-nav.scroll svg:nth-child(1) path {
+nav.scroll .logo path {
   fill: var(--white);
 }
 
@@ -78,6 +122,10 @@ nav button {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+.menu {
+  transform: translateY(100%);
 }
 
 body.menu-expanded {
@@ -113,6 +161,8 @@ body.menu-expanded .menu {
   width: 100vw;
   height: 100vh;
   padding-top: var(--nav-height);
+  transition: transform 300ms;
+  transform: translateY(0);
 }
 
 .menu ul:nth-child(1) {
@@ -170,11 +220,11 @@ body.menu-expanded button path {
   stroke: var(--white);
 }
 
-header {
-  margin-top: calc(4.1rem + var(--nav-height));
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
 }
 
-header::before {
+#home::before {
   content: '';
   background-color: var(--brand-green-light);
   width: 100%;
@@ -186,23 +236,7 @@ header::before {
   z-index: -1;
 }
 
-header h4 {
-  font-size: 1.4rem;
-  line-height: 2.1rem;
-  color: var(--brand-green);
-  text-align: center;
-  margin-bottom: 1.6rem;
-}
-
-header h1 {
-  font-size: 3.4rem;
-  line-height: 4.4rem;
-  text-align: center;
-  color: var(--gray-headline);
-  margin-bottom: 2.4rem;
-}
-
-header p {
+#home p {
   font-size: 1.8rem;
   line-height: 2.7rem;
   font-weight: 400;
@@ -211,7 +245,7 @@ header p {
   margin-bottom: 3.3rem;
 }
 
-header button {
+#home button {
   background-color: var(--brand-green);
   color: var(--white);
   border-radius: 4rem;
@@ -231,14 +265,14 @@ header button {
   margin-right: auto;
 }
 
-header img {
+#home img {
   width: 26.4rem;
   display: block;
   margin-inline: auto;
   object-position: 0 2rem;
 }
 
-.stats {
+#home .stats {
   width: 32.7rem;
   background-color: var(--brand-beige);
   border: 1px solid var(--brand-green-light);
@@ -251,16 +285,59 @@ header img {
   gap: 6rem;
 }
 
-.stat h3 {
+#home .stat h3 {
   font-size: 4.8rem;
   line-height: 6.2rem;
   color: var(--gray-headline);
   margin-bottom: 0.4rem;
 }
 
-.stat p {
+#home .stat p {
   margin: 0;
   font-size: 1.6rem;
   line-height: 2.4rem;
   color: var(--brand-green);
+}
+
+#services h2 {
+  margin-bottom: 6rem;
+}
+
+#services .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+#services .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.6rem;
+  text-align: left;
+  padding: 2.4rem;
+  background-color: var(--white);
+  border: 0.1rem solid var(--brand-green-light);
+  border-radius: 0.6rem;
+}
+
+#services .card h3 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 3.1rem;
+  color: var(--gray-headline);
+}
+
+#about {
+  text-align: left;
+  background-color: var(--brand-beige);
+}
+
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
+
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
 }
