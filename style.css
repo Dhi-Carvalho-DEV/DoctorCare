@@ -88,6 +88,30 @@ section .content p {
   color: var(--gray-paragraph);
 }
 
+.button {
+  background-color: var(--brand-green);
+  color: var(--white);
+  border-radius: 4rem;
+  border: none;
+  padding: 1.6rem 3.2rem;
+  width: fit-content;
+
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-bottom: 6rem;
+  transition: background 300ms;
+}
+
+.button:hover {
+  background-color: var(--brand-green-hover);
+}
+
 nav {
   display: flex;
   height: var(--nav-height);
@@ -236,6 +260,10 @@ body.menu-expanded button path {
   z-index: -1;
 }
 
+#home .button {
+  margin-inline: auto;
+}
+
 #home p {
   font-size: 1.8rem;
   line-height: 2.7rem;
@@ -243,26 +271,6 @@ body.menu-expanded button path {
   text-align: center;
   color: var(--gray-paragraph);
   margin-bottom: 3.3rem;
-}
-
-#home button {
-  background-color: var(--brand-green);
-  color: var(--white);
-  border-radius: 4rem;
-  border: none;
-  height: 6.2rem;
-  width: 26.3rem;
-
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  margin-bottom: 6rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 #home img {
@@ -340,4 +348,25 @@ body.menu-expanded button path {
 #about .content p {
   margin-top: 2.4rem;
   margin-bottom: 6rem;
+}
+
+#contact {
+  text-align: left;
+}
+
+#contact header {
+  margin-bottom: 3.2rem;
+}
+
+#contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
